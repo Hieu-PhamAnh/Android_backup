@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                             Iterator<String> stringIterator = object.keys();
                             while (stringIterator.hasNext()) {
                                 //namesList.add(stringIterator.next());
+                                //các keys sẽ là các id của bản ghi trên firebase
                                 ApiService.apiService.getUser(stringIterator.next()).enqueue(new Callback<User>() {
                                     @Override
                                     public void onResponse(Call<User> call, Response<User> response) {
@@ -80,6 +81,9 @@ public class LoginActivity extends AppCompatActivity {
                                                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                                         LoginActivity.this.finish();
                                                     }
+                                                }
+                                                else {
+                                                    Toast.makeText(LoginActivity.this, "Tên đăng nhập hoặc mật khẩu không đúng " , Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         }

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:background="@drawable/background"
     android:layout_height="match_parent">
-
+<!--    <ScrollView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
@@ -287,5 +289,5 @@
             android:textSize="20sp" />
 
     </LinearLayout>
-
+<!--    </ScrollView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -144,7 +144,7 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="645dp"
+        android:layout_height="600dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +154,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/oitem"
             android:layout_width="match_parent"
-            android:layout_height="436dp">
+            android:layout_height="380dp">
 
         </androidx.recyclerview.widget.RecyclerView>
 
@@ -209,7 +209,7 @@
         <TextView
             android:id="@+id/payment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="1"

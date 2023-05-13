@@ -46,7 +46,7 @@ public class LoginOptionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.fullyInitialize();
+//        FacebookSdk.fullyInitialize();
         SharedPreferences sharedPreferences1=LoginOptionActivity.this.getSharedPreferences("app",MODE_PRIVATE);
         SharedPreferences.Editor editor1= sharedPreferences1.edit();
         if(!sharedPreferences1.getString("user","").equals("")){
@@ -59,61 +59,61 @@ public class LoginOptionActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         lg = findViewById(R.id.lg_nor);
         lgInsta = findViewById(R.id.lg_insta);
-        lgFb = findViewById(R.id.lg_fb);
-        CallbackManager callbackManager = CallbackManager.Factory.create();
-        lgFb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-
-                AccessToken accessToken = AccessToken.getCurrentAccessToken();
-                GraphRequest request = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(@Nullable JSONObject jsonObject, @Nullable GraphResponse graphResponse) {
-                        try {
-                            String id = jsonObject.getString("id");
-                            String name = jsonObject.getString("name");
-                            User u= new User();
-                            u.setName(name);
-                            u.setId(id);
-                            u.setPermission("customer");
-                            ApiService.apiService.signUp(u.getId(),u).enqueue(new Callback<User>() {
-                                @Override
-                                public void onResponse(Call<User> call, Response<User> response) {
-                                    editor1.putString("user",id);
-                                    editor1.putString("address","");
-                                    editor1.putBoolean("admin",false);
-                                    editor1.commit();
-                                    startActivity(new Intent(LoginOptionActivity.this, MainActivity.class));
-                                    LoginOptionActivity.this.finish();
-                                }
-
-                                @Override
-                                public void onFailure(Call<User> call, Throwable t) {
-
-                                }
-                            });
-
-                        } catch (JSONException e) {
-                            System.out.println(e);
-                        }
-                    }
-                });
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name");
-                request.setParameters(parameters);
-                request.executeAsync();
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(@NonNull FacebookException e) {
-                Toast.makeText(LoginOptionActivity.this, e+"" , Toast.LENGTH_SHORT).show();
-            }
-        });
+//        lgFb = findViewById(R.id.lg_fb);
+//        CallbackManager callbackManager = CallbackManager.Factory.create();
+//        lgFb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//
+//                AccessToken accessToken = AccessToken.getCurrentAccessToken();
+//                GraphRequest request = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
+//                    @Override
+//                    public void onCompleted(@Nullable JSONObject jsonObject, @Nullable GraphResponse graphResponse) {
+//                        try {
+//                            String id = jsonObject.getString("id");
+//                            String name = jsonObject.getString("name");
+//                            User u= new User();
+//                            u.setName(name);
+//                            u.setId(id);
+//                            u.setPermission("customer");
+//                            ApiService.apiService.signUp(u.getId(),u).enqueue(new Callback<User>() {
+//                                @Override
+//                                public void onResponse(Call<User> call, Response<User> response) {
+//                                    editor1.putString("user",id);
+//                                    editor1.putString("address","");
+//                                    editor1.putBoolean("admin",false);
+//                                    editor1.commit();
+//                                    startActivity(new Intent(LoginOptionActivity.this, MainActivity.class));
+//                                    LoginOptionActivity.this.finish();
+//                                }
+//
+//                                @Override
+//                                public void onFailure(Call<User> call, Throwable t) {
+//
+//                                }
+//                            });
+//
+//                        } catch (JSONException e) {
+//                            System.out.println(e);
+//                        }
+//                    }
+//                });
+//                Bundle parameters = new Bundle();
+//                parameters.putString("fields", "id,name");
+//                request.setParameters(parameters);
+//                request.executeAsync();
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//
+//            }
+//
+//            @Override
+//            public void onError(@NonNull FacebookException e) {
+//                Toast.makeText(LoginOptionActivity.this, e+"" , Toast.LENGTH_SHORT).show();
+//            }
+//        });
         lgMail = findViewById(R.id.lg_mail);
         lg.setOnClickListener(new View.OnClickListener() {
             @Override
