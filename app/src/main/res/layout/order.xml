@@ -29,7 +29,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:text="Tổng Giá"
+            android:text="Tổng:"
             android:textColor="#000000"
             android:textSize="15sp" />
 
@@ -40,7 +40,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:text="Ngày đặt"
+            android:text="Ngày đặt:"
             android:textColor="#000000"
             android:textSize="15sp" />
 
@@ -51,7 +51,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:text="Trạng thái"
+            android:text="Trạng thái:"
             android:textColor="#000000"
             android:textSize="15sp" />
 

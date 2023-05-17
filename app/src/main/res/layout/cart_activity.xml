@@ -93,7 +93,7 @@
 
             <TextView
                 android:id="@+id/items"
-                android:layout_width="0dp"
+                android:layout_width="3dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="3dp"
@@ -151,6 +151,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/oitem"
             android:layout_width="match_parent"
@@ -218,7 +225,8 @@
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="24sp" />
-
+        </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
